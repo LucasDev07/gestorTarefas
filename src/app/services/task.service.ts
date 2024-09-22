@@ -19,6 +19,9 @@ export class TaskService {
 
   getById(id: number): Task | undefined{
 
+    /*find: usado para retornar o valor do primeiro elemento em um array 
+    que satisfaz uma função de teste fornecida. Se nenhum elemento 
+    satisfizer a função de teste, ele retorna undefined.*/
     const task = this.tasks.find(c => c.id === id);
 
     return task;
@@ -26,6 +29,8 @@ export class TaskService {
 
   addTask(task: Task) {
     
+    task.id = this.tasks.length + 1;
+
     this.tasks.push(task); 
 
     this.saveToLocalStorage();
